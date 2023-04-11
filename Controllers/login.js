@@ -1,13 +1,15 @@
 import User from '../Models/userModel.js';
 import jwt from 'jsonwebtoken';
-
 import dotenv from 'dotenv'
+import Cookies from 'js-cookie';
 dotenv.config()
+
+
 
 const login = async function(req, res)  {
 
     const { email, password } = req.body;
-    console.log(email);
+    console.log(password);
   
     if (!email || !password) {
       return res
@@ -17,7 +19,7 @@ const login = async function(req, res)  {
   
     const user = await User.findOne({ email });
   
-    console.log(user);
+    console.log(user,"user");
   
     if (!user) {
       return res.status(401).json({ message: "Invalid credentials" });
@@ -30,11 +32,14 @@ const login = async function(req, res)  {
 
     const token = jwt.sign(
         { userId: user._id },
-        process.env.JWT_SECRET
+        process.env.JWT_SECRET, { expiresIn: '1h' }
       );
     
+         Cookies.set('token', token);
+     
+
       res.json({
-        message: `Hello ${user.name}, Welcome to BMI system!`,
+         message: `Hello ${user.name}, Welcome to BMI system!`, 
         token: token
        
       });
