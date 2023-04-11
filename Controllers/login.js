@@ -42,7 +42,8 @@ const login = async function(req, res)  {
         process.env.JWT_SECRET, { expiresIn: '1h' }
       );
     
-         Cookies.set('token', token);
+      res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'strict' });
+
      
 
       res.json({
