@@ -5,6 +5,7 @@ import login from './Controllers/login.js';
 import jwt from 'jsonwebtoken';
 import Cookies from 'js-cookie';
 import getProfile from './Controllers/getProfile.js';
+import calculateBMI from './Controllers/calculateBMI.js';
 
 const router= express.Router();
 
@@ -16,5 +17,6 @@ router.route('/login').post(login)
 
 router.route('/getProfile').post(getProfile)
 
+router.route('/calculateBMI').post(calculateBMI)
 
 export default router;
