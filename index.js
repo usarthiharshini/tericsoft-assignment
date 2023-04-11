@@ -1,11 +1,14 @@
 
-const express = require('express');
-/* const router = require('./routes') */
-const mongoose = require('mongoose');
-require('dotenv').config();
+import express, { json } from 'express';
+import router from './routes.js'; 
+import mongoose from 'mongoose';
+import dotenv from 'dotenv'
+dotenv.config();
 const app = express();
 
 
+app.use(json());
+app.use('/',router)
 
 const connectDB = async () => {
     try {

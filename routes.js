@@ -1,8 +1,14 @@
 
-const express = require('express');
+import express from 'express';
+
+import signUp from './Controllers/signUp.js';
+import login from './Controllers/login.js';
 
 const router= express.Router();
 
-router.route('/signup').post()
+router.route('/register').post(signUp)
 
-router.route('/login').post()
+router.route('/login').post(login)
+
+
+export default router;
