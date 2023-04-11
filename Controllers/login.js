@@ -7,6 +7,8 @@ const login = async function (req, res) {
   const { email, password } = req.body;
   console.log(password);
 
+  const maxAge = 3 * 24 * 60 * 60;
+
   if (!email || !password) {
     return res
       .status(400)
@@ -26,12 +28,10 @@ const login = async function (req, res) {
   }
 
   const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-    expiresIn: "1h",
+    expiresIn: maxAge,
   });
 
-  res.cookie("token", token, { httpOnly: true });
-
-  console.log(req, "session");
+  res.cookie("token", token, { httpOnly: true, maxAge: maxAge * 1000 });
 
   res.json({
     message: `Hello ${user.name}, Welcome to BMI system!`,

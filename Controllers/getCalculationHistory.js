@@ -1,6 +1,6 @@
 import User from "../Models/userModel.js";
 
-const getProfile = async function (req, res) {
+const getCalculationHistory = async function (req, res) {
   const { _id } = req.params;
 
   const user = await User.findOne({ _id });
@@ -15,8 +15,8 @@ const getProfile = async function (req, res) {
 
   res.json({
     message: `User found!`,
-    data: user,
+    BMIs: user.bmis,
   });
 };
 
-export default getProfile;
+export default getCalculationHistory;
