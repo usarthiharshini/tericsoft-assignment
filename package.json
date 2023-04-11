@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/usarthiharshini/tericsoft-assignment#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "js-cookie": "^3.0.1",

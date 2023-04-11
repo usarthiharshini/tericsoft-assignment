@@ -8,12 +8,12 @@ dotenv.config()
 
 const login = async function(req, res)  {
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
+ /*  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET,OPTIONS,PATCH,DELETE,POST,PUT"
   );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); */
 
     const { email, password } = req.body;
     console.log(password);

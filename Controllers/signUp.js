@@ -1,12 +1,12 @@
 import User from "../Models/userModel.js";
 
 const signUp = async function (req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+ /*  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET,OPTIONS,PATCH,DELETE,POST,PUT"
   );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); */
 
   try {
     const userexists = await User.findOne({ email: req.body.email });
